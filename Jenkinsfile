@@ -3,7 +3,7 @@ pipeline {
     
     stages {
         
-        stage('test')
+        stage('test'){
         when {
                 expression {
                     GIT_BRANCH = 'origin/' + sh(returnStdout: true, script: 'git rev-parse --abbrev-ref HEAD').trim()
@@ -13,6 +13,7 @@ pipeline {
             steps {
                 sh 'echo "lalalal'
                 
+            }
         }
         
         stage('Build') {
