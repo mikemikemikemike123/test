@@ -11,6 +11,7 @@ pipeline {
                         def commit = readFile('commit').trim()  
                         commit
                         sh 'commit'
+                        sh 'echo $BRANCH_NAME'
                     }
                          
                  }
