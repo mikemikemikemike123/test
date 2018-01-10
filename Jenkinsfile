@@ -1,6 +1,6 @@
 pipeline {
     agent any
-   options { skipDefaultCheckout() }
+    options { skipDefaultCheckout() }
     
     stages {
         stage('Build') {
@@ -9,7 +9,7 @@ pipeline {
                    def scmVars = checkout scm
                    
                         echo "\n\n\n\n"
-                        echo scmVars
+                   def commitHash = scmVars.GIT_COMMIT                
                  }
             }
         }
