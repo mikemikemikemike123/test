@@ -5,8 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                     script {
-                        echo $env.GIT_COMMIT
-                      
+                        shortCommit = sh(returnStdout: true, script: "git log -n 1 --pretty=format:'%h'").trim()             
                     }
                          
                  }
