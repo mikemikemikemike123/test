@@ -9,7 +9,7 @@ pipeline {
                       
                         sh 'git rev-parse HEAD > commit'
                         def commit = readFile('commit').trim() 
-                        sh "echo ${commit}"
+                        ${commit}
                        
                     }
                          
