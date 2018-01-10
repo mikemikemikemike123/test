@@ -1,9 +1,6 @@
 pipeline {
     agent any
-    
-    checkcout{
-        
-    }
+   
     
     stages {
         stage('Build') {
