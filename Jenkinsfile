@@ -7,7 +7,9 @@ pipeline {
             steps {
                     script {
                    def scmVars = checkout scm
-                   scmVars
+                   
+                        echo "\n\n\n\n"
+                        echo scmVars
                  }
             }
         }
