@@ -6,8 +6,11 @@ pipeline {
             steps {
                     
                     script {
+                        pwd
                         sh 'git rev-parse HEAD > commit'
-                        def commit = readFile('commit').trim()             
+                        def commit = readFile('commit').trim()  
+                        
+                        commit
                     }
                          
                  }
