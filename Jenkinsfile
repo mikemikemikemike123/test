@@ -24,8 +24,6 @@ pipeline {
                         def commit = readFile('commit').trim() 
                         
                         sh 'git diff --name-only f9e8d87fa35d96f26c902720a9d2c83ebb848381 > file_changed'
-                        for file in 'cat file_changed'; do
-                            echo $file
                         
                        
                     }
