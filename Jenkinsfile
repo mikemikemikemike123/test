@@ -5,9 +5,8 @@ pipeline {
         stage('Build') {
             steps {
                     script {
-                   
-                        for (commit in pullRequest['commits']) {
-                    echo "SHA: ${commit['sha']}, Committer: ${commit['commiter']}, Commit Message: ${commit['message']}"
+                        echo $env.GIT_COMMIT
+                      
                     }
                          
                  }
