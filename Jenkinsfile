@@ -1,6 +1,5 @@
 pipeline {
     agent any
-    options { skipDefaultCheckout() }
     
     stages {
         stage('Build') {
@@ -17,7 +16,7 @@ pipeline {
                 url: 'https://github.com/mikemikemikemike123/test.git']]])
                    
                         echo "\n\n\n\n"
-                   def commitHash = scmVars.GIT_COMMIT                
+                         
                  }
             }
         }
