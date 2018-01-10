@@ -1,14 +1,12 @@
 pipeline {
     agent any
    
-    script {
-                   def scmVars = checkout scm
-           }
-     
     stages {
         stage('Build') {
             steps {
-                echo 'Building..'
+                    script {
+                   def scmVars = checkout scm
+                 }
             }
         }
         stage('Test') {
