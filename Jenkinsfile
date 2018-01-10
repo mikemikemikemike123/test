@@ -9,7 +9,7 @@ pipeline {
                         sh 'pwd'
                         sh 'git rev-parse HEAD > commit'
                         def commit = readFile('commit').trim()  
-                        
+                        commit
                         sh 'commit'
                     }
                          
