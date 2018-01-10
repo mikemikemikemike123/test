@@ -14,7 +14,7 @@ pipeline {
                 ],
                 submoduleCfg: [],
                 userRemoteConfigs: [[credentialsId: 'e5e65ad4-332f-491e-b1cd-9f0276152d7b',
-                url: 'git@github.com:mikemikemikemike123/test.git']]])
+                url: 'https://github.com/mikemikemikemike123/test.git']]])
                    
                         echo "\n\n\n\n"
                    def commitHash = scmVars.GIT_COMMIT                
