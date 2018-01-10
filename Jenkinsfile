@@ -6,7 +6,8 @@ pipeline {
             steps {
                     
                     script {
-                        shortCommit = git log -n 1 --pretty=format:'%h'             
+                        sh 'git rev-parse HEAD > commit'
+                        def commit = readFile('commit').trim()             
                     }
                          
                  }
