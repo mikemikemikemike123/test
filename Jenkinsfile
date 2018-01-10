@@ -1,7 +1,7 @@
 pipeline {
     agent any
    
-    checkout scm
+     def scmVars = checkout scm
 
     stages {
         stage('Build') {
