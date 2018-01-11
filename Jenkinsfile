@@ -1,15 +1,19 @@
 pipeline {
     agent any
-    
+
+    //options { skipDefaultCheckout() }
+
     stages {
-        stage('Build') {
+        stage('Fetch') {
             steps {
-                    script {
-                   
-                        for (commit in pullRequest['commits']) {
-                    echo "SHA: ${commit['sha']}, Committer: ${commit['commiter']}, Commit Message: ${commit['message']}"
-                    }
-                         
+                script {
+
+                  sh 'git rev-parse HEAD > commit'
+                  def commit = readFile('commit').trim()
+
+                  sh 'git diff --name-only ${commit} > file_changed'
+
+
                  }
             }
         }
