@@ -19,6 +19,10 @@ pipeline {
     stage('prepare_backend') {
      when {
        expression { env.GIT_TAG.contains('backend') }
+       anyOf {
+         branch 'test1';
+         branch 'test2' 
+       }
      }
      steps {
 
