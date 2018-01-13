@@ -1,31 +1,37 @@
 pipeline {
     agent any
 
-    //options { skipDefaultCheckout() }
+
+    environment {
+      ALIAS = "${env.BRANCH_NAME.replace('/', '-')}"
+      GIT_TAG = sh(script: "./check_paths.sh ${env.GIT_COMMIT} ${env.GIT_PREVIOUS_COMMIT} ${env.ALIAS} ${env.BRANCH_NAME}", returnStdout: true)
+    }
 
     stages {
-        stage('Fetch') {
-            steps {
-                script {
 
-                  sh 'git rev-parse HEAD > commit'
-                  def commit = readFile('commit').trim()
+    stage('prepare_backend') {
+     when {
+       expression { env.GIT_TAG.contains('backend') }
+     }
+     steps {
 
-                  sh 'git diff --name-only ${commit} > file_changed'
+       sh 'echo "This is backend preparation step"'
+
+     }
+  }
+
+ stage('prepare_frontend') {
+
+   when {
+     expression { env.GIT_TAG.contains('frontend') }
+    }
+     steps {
+
+       sh 'echo "This is frontend preparation step"'
+
+     }
+  }
 
 
-                 }
-            }
-        }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
-            }
-        }
     }
 }
