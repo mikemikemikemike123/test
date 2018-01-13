@@ -9,6 +9,13 @@ pipeline {
 
     stages {
 
+      stage("test"){
+      steps {
+              echo "${env.GIT_TAG}"
+
+            }
+    }
+
     stage('prepare_backend') {
      when {
        expression { env.GIT_TAG.contains('backend') }
