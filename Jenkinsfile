@@ -20,8 +20,8 @@ pipeline {
      when {
        expression { env.GIT_TAG.contains('backend') }
        anyOf {
-         branch 'test1';
-         branch 'test2' 
+         branch 'develop';
+         branch 'master' 
        }
      }
      steps {
